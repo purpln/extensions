@@ -48,4 +48,74 @@ public extension UIView {
         return self.bottomAnchor
     }
 }
+
+public extension UIView {
+    // MARK: - layer.borderColor
+    var borderColor: UIColor? {
+        get {
+            guard let color = layer.borderColor else {
+                return nil
+            }
+            return UIColor(cgColor: color)
+        }
+        set {
+            guard let color = newValue else {
+                layer.borderColor = nil
+                return
+            }
+            layer.borderColor = color.cgColor
+        }
+    }
+    
+    // MARK: - layer.borderWidth
+    var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    // MARK: - corner radius
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.masksToBounds = true
+            layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
+        }
+    }
+}
+
+public extension UIView {
+    var size: CGSize {
+        get {
+            return self.frame.size
+        }
+        set {
+            self.width = newValue.width
+            self.height = newValue.height
+        }
+    }
+    
+    var width: CGFloat {
+        get {
+            return self.frame.size.width
+        }
+        set {
+            self.frame.size.width = newValue
+        }
+    }
+    
+    var height: CGFloat {
+        get {
+            return self.frame.size.height
+        }
+        set {
+            self.frame.size.height = newValue
+        }
+    }
+}
 #endif
