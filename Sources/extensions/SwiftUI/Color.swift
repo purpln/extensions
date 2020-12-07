@@ -1,8 +1,8 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
-@available(iOS 13.0, *)
-extension Color{
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public extension Color{
     init?(hex: String){
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0
