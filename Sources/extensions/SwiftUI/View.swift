@@ -16,10 +16,10 @@ public extension View{
         #endif
     }
 }
-
-enum Device{
+public enum Device{
     case iPhone
     case iPad
     case macOS
 }
+
 #endif
