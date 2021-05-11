@@ -2,24 +2,26 @@
 import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public extension View{
-    func getDevice()->Device{
+public extension View {
+    var device: Device {
         #if os(iOS)
-        if UIDevice.current.model.contains("iPad"){
-            return .iPad
+        if UIDevice.current.model.contains("iPad") {
+            return .ipad
+        } else {
+            return .iphone
         }
-        else{
-            return .iPhone
-        }
+        #elseif os(watchOS)
+        return .watch
         #else
-        return .macOS
+        return .macos
         #endif
     }
 }
 public enum Device{
-    case iPhone
-    case iPad
-    case macOS
+    case iphone
+    case ipad
+    case watch
+    case macos
 }
 
 #endif
