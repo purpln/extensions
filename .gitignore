@@ -1,3 +1,7 @@
-
-Sources/.DS_Store
+# Hidden Files
+.*
+.gitignore
 .DS_Store
+.swiftpm
+.vscode/
+__pycache__/
